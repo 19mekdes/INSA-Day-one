@@ -1,6 +1,3 @@
-// ============================================
-// EMPLOYEE DATA
-// ============================================
 const employees = [
     {
         "id": 1,
@@ -58,18 +55,14 @@ const employees = [
     }
 ];
 
-// ============================================
-// DOM ELEMENTS
-// ============================================
+
 const searchInput = document.getElementById('searchInput');
 const clearBtn = document.getElementById('clearBtn');
 const employeeGrid = document.getElementById('employeeGrid');
 
 let filteredEmployees = [...employees];
 
-// ============================================
-// RENDER EMPLOYEES
-// ============================================
+
 function renderEmployees(employeeList) {
     // Show/hide clear button
     if (searchInput.value.trim().length > 0) {
@@ -113,14 +106,14 @@ function renderEmployees(employeeList) {
 // ============================================
 function searchEmployee() {
     const searchTerm = searchInput.value.toLowerCase().trim();
-    
+
     if (searchTerm === '') {
         filteredEmployees = [...employees];
         renderEmployees(filteredEmployees);
         return;
     }
 
-    filteredEmployees = employees.filter(emp => 
+    filteredEmployees = employees.filter(emp =>
         emp.name.toLowerCase().includes(searchTerm)
     );
     renderEmployees(filteredEmployees);
@@ -139,7 +132,7 @@ function clearSearch() {
 // ============================================
 // KEYBOARD SHORTCUT
 // ============================================
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && document.activeElement === searchInput) {
         clearSearch();
     }
@@ -148,6 +141,6 @@ document.addEventListener('keydown', function(e) {
 // ============================================
 // START APP
 // ============================================
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     renderEmployees(employees);
 });
