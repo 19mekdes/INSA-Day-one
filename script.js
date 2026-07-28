@@ -101,9 +101,7 @@ function renderEmployees(employeeList) {
     `).join('');
 }
 
-// ============================================
-// SEARCH FUNCTION
-// ============================================
+
 function searchEmployee() {
     const searchTerm = searchInput.value.toLowerCase().trim();
 
@@ -119,9 +117,7 @@ function searchEmployee() {
     renderEmployees(filteredEmployees);
 }
 
-// ============================================
-// CLEAR SEARCH
-// ============================================
+
 function clearSearch() {
     searchInput.value = '';
     searchInput.focus();
@@ -129,18 +125,14 @@ function clearSearch() {
     renderEmployees(filteredEmployees);
 }
 
-// ============================================
-// KEYBOARD SHORTCUT
-// ============================================
+
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && document.activeElement === searchInput) {
         clearSearch();
     }
 });
 
-// ============================================
-// START APP
-// ============================================
+
 document.addEventListener('DOMContentLoaded', function () {
     renderEmployees(employees);
 });
