@@ -3,66 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INSA Employee Directory</title>
-    
-    <!-- CSS -->
+    <title>Employee Directory</title>
     <link rel="stylesheet" href="style.css">
-    
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <!-- HEADER -->
-        <header class="header">
-            <div class="header-content">
-                <h1>
-                    <i class="fas fa-building"></i> 
-                    INSA Employee Directory
-                </h1>
-                <p>Search and manage your team members</p>
-            </div>
-        </header>
+        <div class="header">
+            <h1>Employee Directory</h1>
+            
+        </div>
 
-        <!-- SEARCH SECTION -->
-        <section class="search-section">
-            <div class="search-wrapper">
-                <i class="fas fa-search search-icon"></i>
-                <input 
-                    type="text" 
-                    id="searchInput" 
-                    class="search-input" 
-                    placeholder="🔍 Search employee by name..."
-                    oninput="searchEmployee()"
-                    autofocus
-                >
-                <button class="clear-btn" id="clearBtn" onclick="clearSearch()">
-                    <i class="fas fa-times"></i> Clear
-                </button>
-            </div>
-        </section>
+        <!-- SEARCH BAR -->
+        <div class="search-section">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Search employees By Name..."
+                oninput="searchEmployee()"
+            >
+            <button onclick="clearSearch()" id="clearBtn">Clear</button>
+        </div>
 
-        <!-- STATS -->
-        <section class="stats">
-            <div class="stat-item">
-                <i class="fas fa-users"></i> 
-                Total Employees: 
-                <span class="stat-number" id="totalCount">0</span>
-            </div>
-            <div class="stat-item">
-                <i class="fas fa-eye"></i> 
-                Showing: 
-                <span class="stat-number active" id="showingCount">0</span>
-            </div>
-        </section>
-
-        <!-- EMPLOYEE GRID -->
-        <section class="employee-grid" id="employeeGrid">
-            <!-- Rendered by JavaScript -->
-        </section>
+        <!-- EMPLOYEE LIST -->
+        <div class="employee-grid" id="employeeGrid"></div>
     </div>
 
-    <!-- JAVASCRIPT -->
     <script src="script.js"></script>
 </body>
 </html>

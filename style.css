@@ -1,40 +1,4 @@
-/* ============================================
-   CSS VARIABLES
-   ============================================ */
-:root {
-    --primary: #1a56db;
-    --primary-dark: #1e40af;
-    --primary-light: #3b82f6;
-    --secondary: #7c3aed;
-    --success: #059669;
-    --danger: #dc2626;
-    --warning: #d97706;
-    
-    --text-dark: #1f2937;
-    --text-medium: #4b5563;
-    --text-light: #6b7280;
-    --text-lighter: #9ca3af;
-    
-    --bg-light: #f3f4f6;
-    --bg-white: #ffffff;
-    --bg-gradient: #ffffff;  /* Changed to white */
-    --bg-header: linear-gradient(135deg, #1a56db 0%, #7c3aed 100%); /* Keep header gradient */
-    
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-    --shadow-md: 0 4px 20px rgba(0,0,0,0.15);
-    --shadow-lg: 0 10px 40px rgba(0,0,0,0.2);
-    --shadow-hover: 0 10px 30px rgba(0,0,0,0.15);
-    
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
-    
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ============================================
-   RESET & BASE
-   ============================================ */
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -42,462 +6,200 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: var(--bg-gradient);  /* Now white */
-    min-height: 100vh;
-    padding: 20px;
-    color: var(--text-dark);
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    padding: 30px;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
-/* ============================================
-   HEADER - Keeps gradient for style
-   ============================================ */
+/* HEADER - All black text */
 .header {
     text-align: center;
-    margin-bottom: 35px;
-    animation: slideDown 0.6s ease;
-}
-
-.header-content {
-    background: var(--bg-header);  /* Keeps gradient */
-    padding: 30px 20px;
-    border-radius: var(--radius-lg);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: var(--shadow-md);
+    margin-bottom: 30px;
 }
 
 .header h1 {
     font-size: 2.5rem;
-    color: white;
-    font-weight: 700;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    color: #000000;
     margin-bottom: 8px;
 }
 
-.header h1 i {
-    margin-right: 15px;
-}
-
 .header p {
-    color: rgba(255,255,255,0.9);
     font-size: 1.1rem;
+    color: #000000;
 }
 
-/* ============================================
-   SEARCH SECTION - White background
-   ============================================ */
+/* SEARCH BAR */
 .search-section {
-    background: var(--bg-white);
-    padding: 20px 25px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-    margin-bottom: 25px;
-    animation: slideUp 0.5s ease;
-    border: 1px solid #e5e7eb;
-}
-
-.search-wrapper {
     display: flex;
-    gap: 12px;
-    align-items: center;
-    flex-wrap: wrap;
-    position: relative;
+    gap: 10px;
+    margin-bottom: 30px;
 }
 
-.search-wrapper .search-icon {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-lighter);
-    font-size: 1.1rem;
-    z-index: 1;
-}
-
-.search-input {
+.search-section input {
     flex: 1;
-    padding: 14px 20px 14px 45px;
-    border: 2px solid #e5e7eb;
-    border-radius: var(--radius-sm);
+    padding: 14px 20px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
     font-size: 1rem;
-    transition: var(--transition);
-    background: var(--bg-light);
-    min-width: 200px;
+    color: #000000;
+    transition: 0.3s;
 }
 
-.search-input:focus {
+.search-section input:focus {
     outline: none;
-    border-color: var(--primary);
-    background: var(--bg-white);
-    box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.15);
+    border-color: #888;
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
 }
 
-.search-input::placeholder {
-    color: var(--text-lighter);
+.search-section input::placeholder {
+    color: #999;
 }
 
-.clear-btn {
-    padding: 12px 22px;
-    background: var(--danger);
+.search-section button {
+    padding: 14px 30px;
+    background: #dc2626;
     color: white;
     border: none;
-    border-radius: var(--radius-sm);
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    display: none;
-    align-items: center;
-    gap: 8px;
-}
-
-.clear-btn:hover {
-    background: #b91c1c;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
-}
-
-.clear-btn.show {
-    display: inline-flex;
-}
-
-/* ============================================
-   STATS
-   ============================================ */
-.stats {
-    background: var(--bg-white);
-    padding: 14px 22px;
-    border-radius: var(--radius-sm);
-    box-shadow: var(--shadow-sm);
-    margin-bottom: 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    animation: slideUp 0.6s ease;
-    border: 1px solid #e5e7eb;
-}
-
-.stats .stat-item {
-    color: var(--text-medium);
-    font-weight: 500;
-    font-size: 0.95rem;
-}
-
-.stats .stat-item i {
-    margin-right: 8px;
-    color: var(--primary);
-}
-
-.stat-number {
-    background: var(--primary);
-    color: white;
-    padding: 2px 14px;
-    border-radius: 20px;
+    border-radius: 8px;
+    font-size: 1rem;
     font-weight: bold;
-    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: none;
 }
 
-.stat-number.active {
-    background: var(--success);
+.search-section button:hover {
+    background: #b91c1c;
 }
 
-/* ============================================
-   EMPLOYEE GRID
-   ============================================ */
+.search-section button.show {
+    display: block;
+}
+
+/* EMPLOYEE GRID */
 .employee-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    animation: slideUp 0.7s ease;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
 }
 
-/* ============================================
-   EMPLOYEE CARD - White with shadow
-   ============================================ */
+/* EMPLOYEE CARD */
 .employee-card {
-    background: var(--bg-white);
-    border-radius: var(--radius-md);
-    padding: 25px 20px;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    animation: fadeIn 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
     text-align: center;
-    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: 0.3s;
 }
 
 .employee-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--primary-light);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
-/* ===== PROFILE IMAGE - CIRCULAR ===== */
-.profile-image {
+/* CIRCULAR PHOTO - Fixed */
+.employee-card img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--primary);
-    box-shadow: 0 4px 15px rgba(26, 86, 219, 0.3);
-    margin-bottom: 14px;
-    background: var(--bg-light);
-    transition: var(--transition);
-}
-
-.employee-card:hover .profile-image {
-    border-color: var(--secondary);
-    transform: scale(1.05);
-    box-shadow: 0 6px 25px rgba(26, 86, 219, 0.4);
-}
-
-/* ===== EMPLOYEE INFO ===== */
-.employee-name {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 4px;
-}
-
-.employee-position {
-    color: var(--primary);
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 6px;
-}
-
-.employee-department {
-    display: inline-block;
-    background: var(--bg-light);
-    color: var(--text-medium);
-    padding: 3px 14px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    margin-bottom: 12px;
-}
-
-.employee-department i {
-    margin-right: 5px;
-    color: var(--primary);
-}
-
-.employee-details {
-    width: 100%;
-    border-top: 1px solid #e5e7eb;
-    padding-top: 12px;
-    margin-top: 4px;
-}
-
-.detail-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: var(--text-medium);
-    font-size: 0.85rem;
-    padding: 4px 0;
-}
-
-.detail-item .icon {
-    font-size: 0.95rem;
-    color: var(--primary);
-    width: 20px;
-}
-
-.detail-item a {
-    color: var(--primary);
-    text-decoration: none;
-    transition: var(--transition);
-    word-break: break-all;
-}
-
-.detail-item a:hover {
-    color: var(--secondary);
-    text-decoration: underline;
-}
-
-/* ============================================
-   NO RESULTS
-   ============================================ */
-.no-results {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 60px 20px;
-    background: var(--bg-white);
-    border-radius: var(--radius-md);
-    border: 1px solid #e5e7eb;
-}
-
-.no-results .emoji {
-    font-size: 4rem;
-    display: block;
+    border: none;  /* ← No border */
     margin-bottom: 15px;
 }
 
-.no-results h2 {
-    color: var(--text-dark);
+/* All text black */
+.employee-card h3 {
+    font-size: 1.2rem;
+    color: #000000;
+    margin-bottom: 5px;
+}
+
+.employee-card .position {
+    color: #000000;
+    font-weight: 600;
+    font-size: 0.95rem;
     margin-bottom: 8px;
 }
 
-.no-results p {
-    color: var(--text-lighter);
+.employee-card .department {
+    display: inline-block;
+    background: #f3f4f6;
+    padding: 4px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #000000;
+    margin-bottom: 12px;
 }
 
-.no-results .suggestion {
-    margin-top: 12px;
-    color: var(--primary);
-    font-size: 0.95rem;
+.employee-card .details {
+    
+    padding-top: 12px;
 }
 
-/* ============================================
-   ANIMATIONS
-   ============================================ */
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.employee-card .details p {
+    font-size: 0.9rem;
+    color: #000000;
+    padding: 4px 0;
 }
 
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.employee-card .details i {
+    color: #000000;
+    width: 20px;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+.employee-card .details a {
+    color: #000000;
+    text-decoration: none;
 }
 
-/* ============================================
-   RESPONSIVE DESIGN
-   ============================================ */
-@media (max-width: 1024px) {
-    .employee-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    }
+.employee-card .details a:hover {
+    text-decoration: underline;
 }
 
+/* NO RESULTS */
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px;
+    background: white;
+    border-radius: 12px;
+}
+
+.no-results .emoji {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.no-results h2 {
+    color: #000000;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
     body {
-        padding: 12px;
+        padding: 15px;
     }
 
     .header h1 {
         font-size: 1.8rem;
     }
 
-    .header p {
-        font-size: 0.95rem;
-    }
-
-    .header-content {
-        padding: 20px 15px;
-    }
-
     .search-section {
-        padding: 16px;
-    }
-
-    .search-wrapper {
         flex-direction: column;
-        width: 100%;
     }
 
-    .search-input {
+    .search-section button {
         width: 100%;
-        min-width: auto;
-        font-size: 0.95rem;
-    }
-
-    .clear-btn {
-        width: 100%;
-        justify-content: center;
     }
 
     .employee-grid {
         grid-template-columns: 1fr;
-        gap: 18px;
     }
-
-    .stats {
-        flex-direction: column;
-        text-align: center;
-        gap: 6px;
-        padding: 12px 18px;
-    }
-
-    .profile-image {
-        width: 100px;
-        height: 100px;
-    }
-
-    .employee-card {
-        padding: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .header h1 {
-        font-size: 1.4rem;
-    }
-
-    .header-content {
-        padding: 15px 10px;
-    }
-
-    .employee-name {
-        font-size: 1.05rem;
-    }
-
-    .detail-item {
-        font-size: 0.8rem;
-    }
-}
-
-/* ============================================
-   SCROLLBAR
-   ============================================ */
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--primary);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary);
 }
