@@ -71,7 +71,6 @@ function renderEmployees(employeeList) {
         clearBtn.classList.remove('show');
     }
 
-    // No results
     if (employeeList.length === 0) {
         employeeGrid.innerHTML = `
             <div class="no-results">
